@@ -295,7 +295,7 @@ export default function GenerateModelAnswersPage() {
                 };
                 setTestResult('Loading...');
                 try {
-                  const res = await fetch('http://127.0.0.1:8000/model_answer', {
+                  const res = await fetch('https://retrorsely-uncondensational-bentlee.ngrok-free.dev/model_answer', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
@@ -346,7 +346,7 @@ export default function GenerateModelAnswersPage() {
                 };
                 setTestResult('Loading...');
                 try {
-                  const res = await fetch('http://127.0.0.1:8000/model_answer_batch', {
+                  const res = await fetch('https://retrorsely-uncondensational-bentlee.ngrok-free.dev/model_answer_batch', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(batchPayload)

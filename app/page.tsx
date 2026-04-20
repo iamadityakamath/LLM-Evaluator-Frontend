@@ -120,7 +120,7 @@ export default function HomePage() {
         model_answer: row[modelCol],
         grounded_answer: row[groundedCol],
       }))
-      const res = await fetch('http://127.0.0.1:8000/metric_evaluation', {
+      const res = await fetch('https://retrorsely-uncondensational-bentlee.ngrok-free.dev/metric_evaluation', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ records: payload }),
