@@ -12,7 +12,6 @@ const navItems = [
   { href: '/prompts', label: 'Prompts', icon: FileText },
   { href: '/data', label: 'Data', icon: Database },
   { href: '/history', label: 'History', icon: History },
-  { href: '/api-keys', label: 'API Keys', icon: Key },
 ];
 
 export function Sidebar() {
