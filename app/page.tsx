@@ -29,6 +29,17 @@ export default function HomePage() {
         const indexRes = await fetch('/data/dataset/index.json')
         const index = await indexRes.json()
         setDatasets(index)
+        // Hardcode default dataset selection to 'Agribench Task (20 records)' if present, and only if not already set
+        if (!selectedDataset && !selectedDatasetFile) {
+          const agribench = index.find((d: any) => d.name === 'Agribench Task' && d.recordCount === 20)
+          if (agribench) {
+            setSelectedDataset(agribench.id)
+            setSelectedDatasetFile(agribench.fileName)
+          } else if (index && index.length > 0) {
+            setSelectedDataset(index[0].id)
+            setSelectedDatasetFile(index[0].fileName)
+          }
+        }
       } catch (e) {
         setDatasets([])
       } finally {
@@ -54,9 +65,10 @@ export default function HomePage() {
         if (Array.isArray(data) && data.length > 0) {
           const keys = Object.keys(data[0])
           setColumns(keys)
-          setQuestionCol(keys[0] || '')
-          setGroundedCol(keys[1] || '')
-          setModelCol(keys[2] || '')
+          // Hardcode default selection to 'question', 'answer', 'model_answer'
+          setQuestionCol('question')
+          setGroundedCol('answer')
+          setModelCol('model_answer')
         } else {
           setColumns([])
         }
